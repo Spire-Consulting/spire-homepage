@@ -12,7 +12,6 @@ export default function Navbar({ pages }: NavbarProps) {
     const router = useRouter()
 
     const isLinkActive = (path: string) => {
-        console.log(router.pathname === path)
         return router.pathname === path
     }
 
