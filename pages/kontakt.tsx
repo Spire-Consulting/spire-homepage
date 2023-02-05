@@ -10,10 +10,10 @@ import ContactInfo from "../sections/ContactInfo"
 export default function kontakt() {
     return (
         <Layout tabTitle="Kontakt" isLandingLayout>
-            <div className="grid grid-cols-1 sgap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <ContactForm />
                 <div className="order-first w-full pb-8 space-y-8 md:p-8 md:order-last">
-                    <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 underline decoration-blue-500 underline-offset-4">
+                    <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-white underline decoration-blue-500 underline-offset-4">
                         Kontakt
                     </h2>
                     <p className="font-light sm:text-lg">
@@ -21,8 +21,8 @@ export default function kontakt() {
                         omfanget av ditt problem.
                     </p>
                     <div className="w-full h-[3px] bg-blue-500" />
-                    <div className="flex flex-col space-y-4 text-gray-600">
-                        <h3 className="text-black">Kontaktinfo</h3>
+                    <div className="flex flex-col space-y-4">
+                        <h3>Kontaktinfo</h3>
                         <ContactInfo withImage={false} />
                     </div>
                 </div>

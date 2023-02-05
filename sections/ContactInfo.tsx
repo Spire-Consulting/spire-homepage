@@ -9,7 +9,7 @@ type ContactInfoProps = {
 
 export default function ContactInfo({ withImage }: ContactInfoProps) {
     return (
-        <div className="flex flex-col space-y-2">
+        <div className="flex flex-col space-y-2 text-slate-300">
             {withImage && (
                 <>
                     <Image
@@ -29,11 +29,11 @@ export default function ContactInfo({ withImage }: ContactInfoProps) {
             </div>
             <div className="flex items-center ">
                 <PhoneIcon className="h-6 " />
-                <p className="ml-6 ">+47 480 00 508</p>
+                <p className="ml-6 text-slate-300">+47 480 00 508</p>
             </div>
             <div className="flex items-center ">
                 <HomeIcon className="h-6 " />
-                <p className="ml-6 ">Org nr: 916 672 357</p>
+                <p className="ml-6 text-slate-300">Org nr: 916 672 357</p>
             </div>
         </div>
     )

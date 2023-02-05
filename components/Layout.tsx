@@ -24,9 +24,9 @@ const Layout = (props: Props) => {
                 <meta itemProp="name" content={tabTitle} />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
-            <div className="relative flex flex-col items-center min-h-screen overflow-x-hidden bg-gray-50">
+            <div className="relative flex flex-col items-center min-h-screen overflow-x-hidden bg-zinc-900">
                 <Navbar pages={pages} />
-                <div className="flex flex-col items-center w-full p-4 space-y-2 md:space-y-8 lg:space-y-6 md:p-8 lg:p-8 max-w-7xl ">
+                <div className="flex flex-col items-center w-full max-w-6xl p-4 space-y-2 md:space-y-8 lg:space-y-6 md:p-8 lg:p-8 ">
                     {isLandingLayout ? (
                         <>{children}</>
                     ) : (
