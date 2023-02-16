@@ -26,17 +26,17 @@ const Layout = (props: Props) => {
             </Head>
             <div className="relative flex flex-col items-center min-h-screen overflow-x-hidden bg-zinc-900">
                 <Navbar pages={pages} />
-                <div className="flex flex-col items-center w-full max-w-6xl p-4 space-y-2 md:space-y-8 lg:space-y-6 md:p-8 lg:p-8 ">
+                <div className="flex flex-col items-center w-full space-y-2">
                     {isLandingLayout ? (
                         <>{children}</>
                     ) : (
-                        <>
+                        <div className="p-4 md:p-8">
                             <div className="space-y-6 text-center">
                                 <h2 className="text-3xl font-bold">{pageTitle}</h2>
                                 <p className="text-lg">{description}</p>
                             </div>
                             {children}
-                        </>
+                        </div>
                     )}
                 </div>
             </div>

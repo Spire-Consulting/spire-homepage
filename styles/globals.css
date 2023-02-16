@@ -10,7 +10,7 @@
         @apply text-lg font-bold leading-tight text-white md:text-2xl;
     }
     h4 {
-        @apply font-bold text-white;
+        @apply text-lg font-bold text-white underline decoration-2 decoration-lightBlue underline-offset-8;
     }
     h5 {
         @apply text-base tracking-wide text-white;

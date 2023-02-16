@@ -17,18 +17,54 @@ export default function ImageStack({ employees }: Props) {
     )
 
     return (
-        <div className="gap-8 columns-2 md:columns-3">
-            {fiveRandomEmployees.map((employee: Employee, i: number) => (
-                <div key={i} className="mb-4">
+        <div className="flex flex-col">
+            <div className="flex flex-row justify-center mb-4 space-x-4">
+                <div className="mt-auto">
                     <Image
                         className="cursor-pointer"
                         alt="logo"
                         width="150"
                         height="150"
-                        src={employee.profilePicture}
+                        src={"/images/peopleInSpire1.jpg"}
                     />
                 </div>
-            ))}
+                <div className="w-[125px] h-[200px] relative">
+                    <Image
+                        className="object-cover"
+                        alt="logo"
+                        fill
+                        src={fiveRandomEmployees[1].profilePicture}
+                    />
+                </div>
+            </div>
+            <div className="flex flex-row mb-4 space-x-4">
+                <div>
+                    <Image
+                        className="cursor-pointer"
+                        alt="logo"
+                        width="150"
+                        height="150"
+                        src={fiveRandomEmployees[0].profilePicture}
+                    />
+                </div>
+                <div className="w-[125px] h-[200px] relative">
+                    <Image
+                        className="object-cover"
+                        alt="logo"
+                        fill
+                        src={fiveRandomEmployees[2].profilePicture}
+                    />
+                </div>
+                <div>
+                    <Image
+                        className="cursor-pointer"
+                        alt="logo"
+                        width="150"
+                        height="150"
+                        src={fiveRandomEmployees[3].profilePicture}
+                    />
+                </div>
+            </div>
         </div>
     )
 }

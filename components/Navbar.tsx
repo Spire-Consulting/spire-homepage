@@ -16,7 +16,7 @@ export default function Navbar({ pages }: NavbarProps) {
     }
 
     return (
-        <div className="flex flex-row items-center justify-between w-full px-4 py-4 bg-zinc-900 lg:px-12">
+        <div className="flex flex-row items-center justify-between w-full h-[74px] px-4 py-4 lg:px-12">
             <div className="flex flex-row flex-start">
                 <Link href="/" passHref>
                     <Image
@@ -37,8 +37,8 @@ export default function Navbar({ pages }: NavbarProps) {
                         key={key}
                         href={page.link}
                         passHref
-                        className={`m-4 text-lg  font-semibold cursor-pointer hover:underline decoration-blue-500 underline-offset-4 ${
-                            isLinkActive(page.link) ? "text-blue-700 font-bold" : "text-white"
+                        className={`m-4 text-lg font-semibold cursor-pointer hover:underline decoration-lightBlue underline-offset-4 ${
+                            isLinkActive(page.link) ? "text-lightBlue font-bold" : "text-white"
                         }`}
                     >
                         {page.tabTitle}
