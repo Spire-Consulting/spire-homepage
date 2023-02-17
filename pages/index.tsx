@@ -29,13 +29,13 @@ export default function Home({ employees }: EmployeesType) {
                             buttonStyle="border-2 border-lightBlue bg-lightBlue"
                             text="Kontakt oss"
                             textStyle="text-black"
-                            onClick={() => router.push("/om-oss")}
+                            onClick={() => router.push("/kontakt")}
                         />
                         <Button
                             buttonStyle="border-2 border-lightBlue"
                             text="Om oss"
                             textStyle="text-lightBlue"
-                            onClick={() => router.push("/kontakt")}
+                            onClick={() => router.push("/om-oss")}
                         />
                     </div>
                 </div>

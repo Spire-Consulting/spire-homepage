@@ -18,7 +18,7 @@ export default function kontakt() {
                     />
                 </div>
                 <div className="w-full space-y-8">
-                    <HeaderWithTriangle title="Kontakt oss" />
+                    <HeaderWithTriangle title="Kontakt oss" color="lightBlue" />
                     <p className="font-light sm:text-lg">
                         Kontakt oss for en uforpliktende samtale og få et kvalifisert estimat på
                         omfanget av ditt problem.

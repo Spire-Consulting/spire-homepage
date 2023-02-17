@@ -36,3 +36,9 @@ interface ContactFormElements extends HTMLFormControlsCollection {
 export interface YourFormElement extends HTMLFormElement {
     readonly elements: ContactFormElements
 }
+
+export type Service = {
+    title: string
+    description: string
+    icon: JSX.Element
+}

@@ -8,7 +8,7 @@ export default function WhoWeAre() {
 
     return (
         <div className="space-y-4" id="who-we-are">
-            <HeaderWithTriangle title="Hvem er vi?" />
+            <HeaderWithTriangle title="Hvem er vi?" color="lightBlue" />
             <p>
                 Spire Consulting er et studentdrevet konsulentselskap som tilbyr
                 rådgivningstjenester til både små og store bedrifter. Selskapet drives og eies av
