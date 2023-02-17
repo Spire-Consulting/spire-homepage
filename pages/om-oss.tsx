@@ -1,4 +1,5 @@
 import type { NextPage } from "next"
+import Image from "next/image"
 import React from "react"
 import aboutImage from "../public/img/spire_lagerstedt.webp"
 import Layout from "../components/Layout"
@@ -32,8 +33,13 @@ const OmOss: NextPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="space-y-16 page-padding">
+            <div className="space-y-24 page-padding">
                 <WhoWeAre />
+                <div className="relative h-64 -mr-24">
+                    <div className="absolute right-0 w-[40em] h-64">
+                        <Image src={"/images/stockphoto_teamwork.png"} fill alt="teamwork" />
+                    </div>
+                </div>
                 <Services
                     title="IT-løsninger"
                     type="it"

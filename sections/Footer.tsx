@@ -6,7 +6,7 @@ import ContactInfo from "./ContactInfo"
 
 export default function Footer() {
     return (
-        <footer className="w-full p-8 text-white sm:flex-row bg-zinc-900">
+        <footer className="w-full p-4 text-white sm:flex-row bg-zinc-900">
             <div className="flex flex-col justify-between max-w-screen-xl m-auto space-y-4 sm:flex-row">
                 <ContactInfo withImage />
                 <div className="flex flex-col space-y-2">

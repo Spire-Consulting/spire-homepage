@@ -17,7 +17,7 @@ const services = {
 export default function Services({ title, description, type }: ServicesProps) {
     return (
         <div className={`relative ${type === "strategy" && "text-right"}`}>
-            <div className={`flex ${type === "strategy" && "justify-end"}`}>
+            <div className={`flex mb-4 ${type === "strategy" && "justify-end"}`}>
                 <HeaderWithTriangle title={title} color="lime" />
             </div>
             <p>{description}</p>
