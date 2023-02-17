@@ -10,7 +10,7 @@ type MailProps = {
 export default function Mail({ email, className }: MailProps) {
     return (
         <Link href={`mailto${email}`}>
-            <EnvelopeIcon className={`${className}`} />
+            <EnvelopeIcon className={`${className} h-6`} />
         </Link>
     )
 }

@@ -13,8 +13,8 @@ const Employees = (props: EmployeesType) => {
     return (
         <Layout
             tabTitle="Ansatte"
-            pageTitle="Våre ansatte"
-            description="Dette er våre ansatte bla bla bla"
+            pageTitle="Møt våre ansatte"
+            description="Spire består av motiverte og engasjerte studenter fra NTNU i Trondheim, som ønsker å hjelpe bedrifter med å nå sine mål."
         >
             <ul className="grid grid-cols-1 gap-12 sm:gap-10 lg:gap-6 gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
                 {employees

@@ -1,6 +1,5 @@
 import { GetStaticProps } from "next"
 import { useRouter } from "next/router"
-import { useRef } from "react"
 import Button from "../components/buttons/Button"
 import Layout from "../components/Layout"
 import { Employee } from "../interfaces"
@@ -18,12 +17,6 @@ type EmployeesType = {
 
 export default function Home({ employees }: EmployeesType) {
     const router = useRouter()
-    const ref = useRef<HTMLInputElement>(null)
-
-    const handleClick = () => {
-        console.log("serfsdf")
-        ref.current?.scrollIntoView({ behavior: "smooth" })
-    }
 
     return (
         <Layout tabTitle={"Hjem"} isLandingLayout>
@@ -46,17 +39,13 @@ export default function Home({ employees }: EmployeesType) {
                         />
                     </div>
                 </div>
-                <Link
-                    className="flex flex-col items-center pb-8 cursor-pointer"
-                    onClick={handleClick}
-                    href="#who-we-are"
-                >
+                <Link className="flex flex-col items-center pb-8 cursor-pointer" href="#who-we-are">
                     <p className="text-lg text-center">Se mer</p>
                     <ChevronDownIcon className="w-8 h-8 text-white" />
                 </Link>
             </div>
-            <div className="px-16 space-y-16 lg:px-32">
-                <WhoWeAre ref={ref} />
+            <div className="space-y-16 page-padding">
+                <WhoWeAre />
                 <WhatWeDo />
                 <Employees employees={employees} />
                 <Projects />

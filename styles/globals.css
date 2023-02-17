@@ -24,6 +24,11 @@
 }
 @tailwind components;
 @tailwind utilities;
+@layer components {
+    .page-padding {
+        @apply px-12 md:px-16 lg:px-32;
+    }
+}
 
 @font-face {
     font-family: "Mulish";

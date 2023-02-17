@@ -22,7 +22,7 @@ export default function ContactInfo({ withImage }: ContactInfoProps) {
                 </>
             )}
             <div className="flex items-center">
-                <Mail email="kontakt@spireconsulting.no" className="h-6 " />
+                <Mail email="kontakt@spireconsulting.no" />
                 <Link href="mailto:kontakt@spireconsulting.no" className="ml-6 ">
                     kontakt@spireconsulting.no
                 </Link>{" "}

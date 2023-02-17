@@ -3,15 +3,11 @@ import React from "react"
 import Button from "../components/buttons/Button"
 import HeaderWithTriangle from "../components/HeaderWithTriangle"
 
-type WhoWeAreProps = {
-    ref: React.RefObject<HTMLInputElement>
-}
-
-export default function WhoWeAre({ ref }: WhoWeAreProps) {
+export default function WhoWeAre() {
     const router = useRouter()
 
     return (
-        <div ref={ref} className="space-y-4" id="who-we-are">
+        <div className="space-y-4" id="who-we-are">
             <HeaderWithTriangle title="Hvem er vi?" />
             <p>
                 Spire Consulting er et studentdrevet konsulentselskap som tilbyr

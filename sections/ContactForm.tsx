@@ -22,52 +22,51 @@ export default function ContactForm() {
     }
 
     return (
-        <section className="rounded shadow-lg bg-zinc-800">
-            <div className="max-w-screen-md px-4 py-6 mx-auto lg:py-8">
-                <form onSubmit={handleSubmit} className="space-y-8 text-white">
-                    <div>
-                        <label htmlFor="mail" className="block mb-2 text-sm font-medium ">
-                            Mail
-                        </label>
-                        <input
-                            type="mail"
-                            id="mail"
-                            className="shadow-sm bg-zinc-600 border border-zinc-900 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            placeholder="navn@eksempel.no"
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="name" className="block mb-2 text-sm font-medium">
-                            Navn/bedrift
-                        </label>
-                        <input
-                            type="text"
-                            id="name"
-                            className="block w-full p-3 text-sm border rounded-lg shadow-sm bg-zinc-600 border-zinc-900 focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Hvem trenger hjelp..."
-                            required
-                        />
-                    </div>
-                    <div className="sm:col-span-2">
-                        <label htmlFor="description" className="block mb-2 text-sm font-medium ">
-                            Beskrivelse
-                        </label>
-                        <textarea
-                            id="description"
-                            rows={6}
-                            className="block p-2.5 w-full text-sm  bg-zinc-600 border border-zinc-900 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Hva trenger dere hjelp med..."
-                        ></textarea>
-                    </div>
-                    <Button
-                        typeSubmit
-                        text="Send"
-                        className="w-full bg-blue-500"
-                        endIcon={loading ? <Spinner className="ml-2" /> : undefined}
+        <section className="max-w-screen-md mx-auto">
+            <form onSubmit={handleSubmit} className="space-y-8 text-white">
+                <div>
+                    <label htmlFor="mail" className="block mb-2 text-sm font-medium ">
+                        Mail
+                    </label>
+                    <input
+                        type="mail"
+                        id="mail"
+                        className="shadow-sm bg-zinc-600 border border-zinc-900 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        placeholder="navn@eksempel.no"
+                        required
                     />
-                </form>
-            </div>
+                </div>
+                <div>
+                    <label htmlFor="name" className="block mb-2 text-sm font-medium">
+                        Navn/bedrift
+                    </label>
+                    <input
+                        type="text"
+                        id="name"
+                        className="block w-full p-3 text-sm border rounded-lg shadow-sm bg-zinc-600 border-zinc-900 focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Hvem trenger hjelp..."
+                        required
+                    />
+                </div>
+                <div className="sm:col-span-2">
+                    <label htmlFor="description" className="block mb-2 text-sm font-medium ">
+                        Beskrivelse
+                    </label>
+                    <textarea
+                        id="description"
+                        rows={6}
+                        className="block p-2.5 w-full text-sm  bg-zinc-600 border border-zinc-900 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Hva trenger dere hjelp med..."
+                    ></textarea>
+                </div>
+                <Button
+                    typeSubmit
+                    buttonStyle="border-2 border-lightBlue bg-lightBlue"
+                    textStyle="text-black"
+                    text="Send melding"
+                    endIcon={loading ? <Spinner className="ml-2" /> : undefined}
+                />
+            </form>
         </section>
     )
 }
