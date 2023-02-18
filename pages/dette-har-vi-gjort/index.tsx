@@ -3,7 +3,7 @@ import { fetchProjects } from "../../utils/api/projectsApi"
 import { GetStaticProps } from "next"
 import Layout from "../../components/Layout"
 import ProjectCard from "../../components/ProjectCard"
-import Tabs from "../../components/Tabs"
+import HighlightedProjectsCarousel from "../../components/HighlightedProjectsCarousel"
 
 type ProjectsType = {
     references: Project[]
@@ -13,42 +13,12 @@ const Projects = (props: ProjectsType) => {
     const { references } = props
     return (
         <Layout tabTitle="Dette har vi gjort">
-            <div className="flex-row hidden w-full lg:flex">
-                <div className="flex flex-col items-center flex-1">
-                    <h2 className="mb-8">IT-løsninger</h2>
-                    {references?.map((project: Project, index: number) => (
-                        <ProjectCard key={index} project={project} alternate={index % 2 === 0} />
-                    ))}
-                </div>
-                <div className="flex flex-col items-center flex-1">
-                    <h2 className="mb-8">Strategi</h2>
+            <div className="space-y-16 page-padding">
+                <HighlightedProjectsCarousel highlightedProjects={references.slice(3)} />
 
-                    {references?.map((project: Project, index: number) => (
-                        <ProjectCard key={index} project={project} alternate={index % 2 === 1} />
-                    ))}
-                </div>
-            </div>
-            <div className="flex flex-col w-full space-y-8 lg:hidden">
-                <Tabs headers={["IT", "Strategi"]}>
-                    <>
-                        {references?.map((project: Project, index: number) => (
-                            <ProjectCard
-                                key={index}
-                                project={project}
-                                alternate={index % 2 === 1}
-                            />
-                        ))}
-                    </>
-                    <>
-                        {references?.map((project: Project, index: number) => (
-                            <ProjectCard
-                                key={index}
-                                project={project}
-                                alternate={index % 2 === 1}
-                            />
-                        ))}
-                    </>
-                </Tabs>
+                {references?.map((project: Project, index: number) => (
+                    <ProjectCard key={index} project={project} alternate={index % 2 === 1} />
+                ))}
             </div>
         </Layout>
     )

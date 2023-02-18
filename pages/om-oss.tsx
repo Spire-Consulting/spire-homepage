@@ -1,7 +1,6 @@
 import type { NextPage } from "next"
 import Image from "next/image"
 import React from "react"
-import aboutImage from "../public/img/spire_lagerstedt.webp"
 import Layout from "../components/Layout"
 import Button from "../components/buttons/Button"
 import { useRouter } from "next/router"
