@@ -1,21 +1,13 @@
-import { GetStaticProps } from "next"
 import { useRouter } from "next/router"
 import Button from "../components/buttons/Button"
 import Layout from "../components/Layout"
-import { Employee } from "../interfaces"
-import Employees from "../sections/Employees"
 import Projects from "../sections/Projects"
-import { fetchConsultants } from "../utils/api/consultantsApi"
 import { ChevronDownIcon } from "@heroicons/react/24/solid"
 import WhatWeDo from "../sections/WhatWeDo"
 import WhoWeAre from "../sections/WhoWeAre"
 import Link from "next/link"
 
-type EmployeesType = {
-    employees: Employee[]
-}
-
-export default function Home({ employees }: EmployeesType) {
+export default function Home() {
     const router = useRouter()
 
     return (
@@ -47,22 +39,9 @@ export default function Home({ employees }: EmployeesType) {
             <div className="space-y-16 page-padding">
                 <WhoWeAre />
                 <WhatWeDo />
-                <Employees employees={employees} />
+                {/* <Employees employees={employees} /> */}
                 <Projects />
             </div>
         </Layout>
     )
-}
-
-export const getStaticProps: GetStaticProps = async () => {
-    try {
-        const { data } = await fetchConsultants()
-        if (!data?.data) {
-            return { notFound: true }
-        }
-        return { props: { employees: data?.data?.consultants } }
-    } catch (error) {
-        console.log(error)
-        return { notFound: true }
-    }
 }
