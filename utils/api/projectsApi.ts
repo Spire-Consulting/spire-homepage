@@ -1,6 +1,7 @@
 import axios from "axios"
 import { Project } from "../../interfaces"
-const URL = `${process.env.NEXT_PUBLIC_API_URL}/references`
+import { baseApiUrl } from "../baseApiUrl"
+const URL = `${baseApiUrl}/references`
 
 export interface IFetchProjectsReturn {
     data: { data: { references: Project[] } }
