@@ -16,16 +16,17 @@ const services = {
 
 export default function Services({ title, description, type }: ServicesProps) {
     return (
-        <div className={`relative ${type === "strategy" && "text-right"}`}>
-            <div className={`flex mb-4 ${type === "strategy" && "justify-end"}`}>
+        <div className={"relative flex flex-col mb-16"}>
+            <div className={"flex mb-4 place-content-center"}>
                 <HeaderWithTriangle title={title} color="lime" />
             </div>
-            <p>{description}</p>
-            <div className="grid grid-cols-2 gap-8 mt-16">
+            <p className="flex place-content-center">{description}</p>
+            <div className="flex justify-between mt-16">
                 {services[type].map((service: Service, index: number) => (
-                    <div key={index} className="flex flex-col items-center">
+                    <div key={index} className="flex flex-col items-center gap-1">
                         {service.icon}
                         <h4>{service.title}</h4>
+                        <p className="text-xs mt-2 text-center">Dette innebærer noe slik. litt mer tekst for å se hvordan det kan se ut</p>
                     </div>
                 ))}
             </div>
