@@ -1,42 +1,50 @@
+import { HomeIcon, PhoneIcon } from "@heroicons/react/24/solid"
 import Link from "next/link"
 import React from "react"
 import { pages } from "../assets/pages"
+import Mail from "../components/buttons/Mail"
 import { Page } from "../interfaces"
 import ContactInfo from "./ContactInfo"
+import Image from "next/image"
 
 export default function Footer() {
     return (
-        <footer className="w-full p-4 text-white sm:flex-row bg-zinc-900">
-            <div className="flex flex-col justify-between max-w-screen-xl m-auto space-y-4 sm:flex-row">
-                <ContactInfo withImage />
-                <div className="flex flex-col space-y-2">
-                    <h3 className="underline decoration-[3px] decoration-lightBlue underline-offset-4">
-                        Social
-                    </h3>
-                    <Link
-                        className="underline"
-                        href="https://www.linkedin.com/company/spire-consulting-as"
-                    >
-                        Linkedin
-                    </Link>
-                    <Link
-                        className="underline"
-                        href="https://www.facebook.com/search/top/?q=spire%20consulting"
-                    >
-                        Facebook
-                    </Link>
-                    <Link className="underline" href="https://www.instagram.com/spireconsulting/">
-                        Instagram
-                    </Link>
-                </div>
-                <div className="flex flex-col space-y-2">
-                    <h3 className="underline decoration-lightBlue underline-offset-4">Utforsk</h3>
-                    {pages.map((page: Page, index: number) => (
-                        <Link href={page.link} key={index} className="underline">
-                            {page.tabTitle}
+        <footer className="w-full text-white sm:flex-row bg-zinc-900 px-12 md:px-16 lg:px-32 py-8">
+            <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
+                <ContactInfo>
+                    <>
+                        <Link href="https://www.linkedin.com/company/spire-consulting-as">
+                            Linkedin
                         </Link>
-                    ))}
-                </div>
+                        <Link href="https://www.facebook.com/search/top/?q=spire%20consulting">
+                            Facebook
+                        </Link>
+                        <Link href="https://www.instagram.com/spireconsulting/">Instagram</Link>
+                    </>
+                </ContactInfo>
+                <ContactInfo>
+                    <>
+                        <Link href="mailto:kontakt@spireconsulting.no">
+                            kontakt@spireconsulting.no
+                        </Link>{" "}
+                        <p>+47 480 00 508</p>
+                        <p>Org nr: 916 672 357</p>
+                    </>
+                </ContactInfo>
+                <ContactInfo>
+                    <>
+                        <div className=" flex md:justify-end">
+                            <Image
+                                alt="logo"
+                                width="100"
+                                height="100"
+                                src="/images/logo_spire_hvit_NOBG.svg"
+                            />
+                        </div>
+                        <p className="md:text-right">Nedre alle 2a</p>
+                        <p className="md:text-right">7030 Trondheim</p>
+                    </>
+                </ContactInfo>
             </div>
         </footer>
     )

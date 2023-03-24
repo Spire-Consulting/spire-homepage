@@ -1,6 +1,7 @@
 import axios from "axios"
 import { Employee } from "../../interfaces"
 import { baseApiUrl } from "../baseApiUrl"
+
 const URL = `${baseApiUrl}/consultants`
 
 /*  FETCH ALL  */
