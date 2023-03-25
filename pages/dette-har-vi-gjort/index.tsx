@@ -7,11 +7,11 @@ import HighlightedProjectsCarousel from "../../components/HighlightedProjectsCar
 import { useState } from "react"
 import Button from "../../components/buttons/Button"
 
-type projectPageProps= {
+type ProjectPageProps = {
     references: Project[]
 }
 
-const Projects = ({references}: projectPageProps) => {
+const Projects = ({references}: ProjectPageProps) => {
     const [activeFilter, setActiveFilter] = useState("ALL")
 
     return (
