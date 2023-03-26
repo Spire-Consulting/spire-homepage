@@ -29,7 +29,7 @@ export default function HighlightedProjectsCarousel({ highlightedProjects }: Pro
             />
             <div className="relative flex-1 m-auto h-80">
                 <Image
-                    src={highlightedProjects[activeIndex].image}
+                    src={highlightedProjects[activeIndex].portrait}
                     alt="Highlighted project"
                     fill
                     className="object-cover grayscale"

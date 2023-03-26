@@ -6,12 +6,17 @@ export type Page = {
     description?: string
 }
 
+type SanityImage = {
+    _type: string
+    asset: any
+}
+
 export type Employee = {
     name: string
-    profilePicture: string
+    profilePicture: SanityImage
     position: string
     study: string
-    linkedIn: string
+    linkedin: string
     email: string
     isAlumni: boolean
     about: string
@@ -20,9 +25,13 @@ export type Employee = {
 
 export interface Project {
     _id: string
+    projectName: string
     customerName: string
-    image: string
-    isPublic: string
+    portrait: any
+    isPublic: boolean
+    isHighlighted: boolean
+    projectDuration: number
+    year: number
     projectDescription: string
     customerQuote: string
 }

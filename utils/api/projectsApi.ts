@@ -23,7 +23,7 @@ export const fetchProjects: IFetchProjects = (params = {}) => {
 
 export const fetchProject: IFetchProject = async (id) => {
     const res = await axios.get(URL, { params: { _id: id } })
-    console.log(res)
+    console.log("projects")
     try {
         const project = res.data.data.references[0]
         return project

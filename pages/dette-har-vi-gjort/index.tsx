@@ -4,19 +4,20 @@ import { GetStaticProps } from "next"
 import Layout from "../../components/Layout"
 import ProjectCard from "../../components/ProjectCard"
 import HighlightedProjectsCarousel from "../../components/HighlightedProjectsCarousel"
+import sanityClient from "../../utils/sanity/sanity"
+import { projectsQuery } from "../../utils/sanity/queries"
 
 type ProjectsType = {
-    references: Project[]
+    projects: Project[]
 }
 
-const Projects = (props: ProjectsType) => {
-    const { references } = props
+const Projects = ({ projects }: ProjectsType) => {
     return (
         <Layout tabTitle="Dette har vi gjort">
             <div className="space-y-16 page-padding">
-                <HighlightedProjectsCarousel highlightedProjects={references.slice(3)} />
+                {/* <HighlightedProjectsCarousel highlightedProjects={projects.slice(3)} /> */}
 
-                {references?.map((project: Project, index: number) => (
+                {projects?.map((project: Project, index: number) => (
                     <ProjectCard key={index} project={project} alternate={index % 2 === 1} />
                 ))}
             </div>
@@ -26,11 +27,9 @@ const Projects = (props: ProjectsType) => {
 
 export const getStaticProps: GetStaticProps = async () => {
     try {
-        const { data } = await fetchProjects()
-        if (!data?.data) {
-            return { notFound: true }
-        }
-        return { props: { references: data?.data?.references } }
+        const projects: Project[] = await sanityClient.fetch(projectsQuery)
+        console.log(projects)
+        return { props: { projects: projects } }
     } catch (error) {
         console.log(error)
         return { notFound: true }

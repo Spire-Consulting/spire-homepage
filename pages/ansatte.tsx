@@ -1,8 +1,9 @@
 import EmployeeCard from "../components/EmployeeCard"
-import { fetchConsultants } from "../utils/api/consultantsApi"
 import { GetStaticProps } from "next"
 import Layout from "../components/Layout"
 import { Employee } from "../interfaces"
+import { employeesQuery } from "../utils/sanity/queries"
+import sanityClient from "../utils/sanity/sanity"
 
 type EmployeesType = {
     employees: Employee[]
@@ -29,11 +30,8 @@ const Employees = (props: EmployeesType) => {
 
 export const getStaticProps: GetStaticProps = async () => {
     try {
-        const { data } = await fetchConsultants()
-        if (!data?.data) {
-            return { notFound: true }
-        }
-        return { props: { employees: data?.data?.consultants } }
+        const employees: Employee[] = await sanityClient.fetch(employeesQuery)
+        return { props: { employees: employees } }
     } catch (error) {
         console.log(error)
         return { notFound: true }
