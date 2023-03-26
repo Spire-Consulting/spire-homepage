@@ -23,17 +23,20 @@ export type Employee = {
     company?: string
 }
 
+export type ProjectType = "it" | "strategy"
+
 export interface Project {
     _id: string
     projectName: string
     customerName: string
-    portrait: any
+    portrait: SanityImage
     isPublic: boolean
     isHighlighted: boolean
     projectDuration: number
     year: number
-    projectDescription: string
-    customerQuote: string
+    projectDescription: any[]
+    type: ProjectType
+    customerQuote?: string
 }
 
 interface ContactFormElements extends HTMLFormControlsCollection {

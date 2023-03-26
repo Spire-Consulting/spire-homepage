@@ -38,7 +38,7 @@ module.exports = {
                 },
                 darkBlue: "#1D1C54",
                 lime: "#CFF26C"
-            }
+            },
         }
     },
     plugins: []

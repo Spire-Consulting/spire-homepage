@@ -9,7 +9,6 @@ type EmployeeProps = {
 }
 
 export default function EmployeeCard({ employee }: EmployeeProps) {
-    console.log("employee", employee)
     const imageProps = useNextSanityImage(sanityClient, employee.profilePicture)
 
     return (
@@ -19,6 +18,7 @@ export default function EmployeeCard({ employee }: EmployeeProps) {
                     src={imageProps.src}
                     alt={employee.name}
                     fill
+                    sizes="(max-width: 640px) 200px, 300px"
                     className="object-cover"
                     placeholder="blur"
                     blurDataURL={employee.profilePicture.asset.metadata.lqip}

@@ -4,6 +4,8 @@ import Button from "./buttons/Button"
 import { useRouter } from "next/router"
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid"
 import { useState } from "react"
+import { useNextSanityImage } from "next-sanity-image"
+import sanityClient from "../utils/sanity/sanity"
 
 type Props = {
     highlightedProjects: Project[]
@@ -12,6 +14,7 @@ type Props = {
 export default function HighlightedProjectsCarousel({ highlightedProjects }: Props) {
     const router = useRouter()
     const [activeIndex, setActiveIndex] = useState(0)
+    // const imageProps = useNextSanityImage(sanityClient, employee.profilePicture)
 
     const handleLeftClick = () => {
         setActiveIndex(activeIndex - 1)
@@ -20,7 +23,7 @@ export default function HighlightedProjectsCarousel({ highlightedProjects }: Pro
     const handleRightClick = () => {
         setActiveIndex(activeIndex + 1)
     }
-
+    if (highlightedProjects.length === 0) return null
     return (
         <div className="relative flex flex-row items-center w-full">
             <ChevronLeftIcon
@@ -28,12 +31,12 @@ export default function HighlightedProjectsCarousel({ highlightedProjects }: Pro
                 className="w-12 h-12 text-white tcursor-pointer "
             />
             <div className="relative flex-1 m-auto h-80">
-                <Image
+                {/* <Image
                     src={highlightedProjects[activeIndex].portrait}
                     alt="Highlighted project"
                     fill
                     className="object-cover grayscale"
-                />
+                /> */}
                 <div className="absolute top-0 left-0 w-full h-full p-16 space-y-1">
                     <h3 className="text-slate-300">
                         {highlightedProjects[activeIndex].customerName}
