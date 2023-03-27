@@ -31,10 +31,8 @@ const Employees = (props: EmployeesType) => {
 export const getStaticProps: GetStaticProps = async () => {
     try {
         const employees: Employee[] = await sanityClient.fetch(employeesQuery)
-        console.log(employees)
         return { props: { employees: employees } }
     } catch (error) {
-        console.log(error)
         return { notFound: true }
     }
 }

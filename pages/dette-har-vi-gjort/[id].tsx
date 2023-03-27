@@ -6,7 +6,7 @@ import { PortableText } from "@portabletext/react"
 import { useNextSanityImage } from "next-sanity-image"
 import sanityClient from "../../utils/sanity/sanity"
 import { portableTextSerializers } from "../../utils/sanity/portableTextSerializer"
-import { fetchById, projectIdsQuery, employeesQuery } from "../../utils/sanity/queries"
+import { fetchById, projectIdsQuery } from "../../utils/sanity/queries"
 import Layout from "../../components/Layout"
 
 type ProjectProps = {
@@ -15,9 +15,8 @@ type ProjectProps = {
 
 const ProjectPage = ({ project }: ProjectProps) => {
     const imageProps = useNextSanityImage(sanityClient, project.portrait)
-    console.log(project)
     if (!project) return <p>Project not found</p>
-    console.log
+
     return (
         <Layout tabTitle={project.projectName}>
             <div>
@@ -46,7 +45,6 @@ const ProjectPage = ({ project }: ProjectProps) => {
 
 export async function getStaticPaths() {
     const paths = await sanityClient.fetch(projectIdsQuery)
-    console.log(paths.map((id: IParams) => ({ params: id })))
     return {
         paths: paths.map((id: IParams) => ({ params: id })),
         fallback: false
@@ -69,7 +67,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
         }
         return { props: { project: project } }
     } catch (error) {
-        console.log(error)
         return { notFound: true }
     }
 }

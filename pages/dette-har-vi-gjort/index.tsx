@@ -15,7 +15,7 @@ type ProjectsProps = {
 const Projects = ({ projects }: ProjectsProps) => {
     const [activeFilter, setActiveFilter] = useState<ProjectType | "ALL">("ALL")
     const isHighlighted = (project: Project) => project.isHighlighted
-
+    console.log("test")
     return (
         <Layout tabTitle="Dette har vi gjort">
             <div className="w-screen px-18 md:px-32 lg:px-52">
@@ -69,7 +69,6 @@ export const getStaticProps: GetStaticProps = async () => {
         const projects: Project[] = await sanityClient.fetch(projectsQuery)
         return { props: { projects: projects } }
     } catch (error) {
-        console.log(error)
         return { notFound: true }
     }
 }
