@@ -6,6 +6,7 @@ import { ChevronDownIcon } from "@heroicons/react/24/solid"
 import WhatWeDo from "../sections/WhatWeDo"
 import WhoWeAre from "../sections/WhoWeAre"
 import Link from "next/link"
+import Employees from "../sections/Employees"
 
 export default function Home() {
     const router = useRouter()
@@ -39,7 +40,7 @@ export default function Home() {
             <div className="space-y-16 page-padding">
                 <WhoWeAre />
                 <WhatWeDo />
-                {/* <Employees employees={employees} /> */}
+                <Employees />
                 <Projects />
             </div>
         </Layout>

@@ -1,23 +1,17 @@
 import { useRouter } from "next/router"
 import Button from "../components/buttons/Button"
 import ImageStack from "../components/ImageStack"
-import { Employee } from "../interfaces"
-import Image from "next/image"
+import HeaderWithTriangle from "../components/HeaderWithTriangle"
 
-type Props = {
-    employees: Employee[]
-}
-
-export default function Employees({ employees }: Props) {
+export default function Employees() {
     const router = useRouter()
 
     return (
-        <div className="flex flex-row content-center my-8 space-x-12">
-            <ImageStack employees={employees} />
-            <div className="space-y-6">
+        <div className="flex flex-col-reverse items-center justify-between md:flex-row">
+            <ImageStack />
+            <div className="mb-12 space-y-6">
                 <div className="flex flex-row items-center space-x-4">
-                    <Image alt="logo" width={17} height={17} src={"images/triangle-filled.svg"} />
-                    <h2>Menneskene i Spire</h2>
+                    <HeaderWithTriangle title="Menneskene i spire" color="lightBlue" />
                 </div>
                 <p>Spire består av motiverte studenter som bla bla bla</p>
                 <div className="flex flex-row space-x-6">

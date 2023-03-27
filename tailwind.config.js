@@ -28,7 +28,6 @@ module.exports = {
                     100: "#a6c4f4",
                     200: "#79a6ee",
                     300: "#4d89e9",
-                    300: "#4d89e9",
                     400: "#367ae6",
                     500: "#206BE3",
                     600: "#1d60cc",
@@ -38,7 +37,7 @@ module.exports = {
                 },
                 darkBlue: "#1D1C54",
                 lime: "#CFF26C"
-            },
+            }
         }
     },
     plugins: []

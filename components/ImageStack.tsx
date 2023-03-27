@@ -1,23 +1,8 @@
-import { Employee } from "../interfaces"
 import Image from "next/image"
-import { useMemo } from "react"
 
-type Props = {
-    employees: Employee[]
-}
-
-export default function ImageStack({ employees }: Props) {
-    const fiveRandomEmployees = useMemo(
-        () =>
-            employees
-                ?.filter((employee: Employee) => !employee.isAlumni)
-                .sort(() => 0.5 - Math.random())
-                .slice(0, 5),
-        [employees]
-    )
-
+export default function ImageStack() {
     return (
-        <div className="flex flex-col">
+        <div className="flex-col hidden md:flex">
             <div className="flex flex-row justify-center mb-4 space-x-4">
                 <div className="mt-auto">
                     <Image
@@ -33,35 +18,35 @@ export default function ImageStack({ employees }: Props) {
                         className="object-cover"
                         alt="logo"
                         fill
-                        src={fiveRandomEmployees[1].profilePicture}
+                        src={"/images/stockphoto_teamwork.png"}
                     />
                 </div>
             </div>
-            <div className="flex flex-row mb-4 space-x-4">
-                <div>
+            <div className="flex flex-row mb-4 space-x-4 ">
+                <div className="hidden lg:block">
                     <Image
                         className="cursor-pointer"
                         alt="logo"
                         width="150"
                         height="150"
-                        src={fiveRandomEmployees[0].profilePicture}
+                        src={"/images/old_members.jpg"}
                     />
                 </div>
-                <div className="w-[125px] h-[200px] relative">
+                <div className="w-[125px] h-[200px] hidden xl:flex relative">
                     <Image
                         className="object-cover"
                         alt="logo"
                         fill
-                        src={fiveRandomEmployees[2].profilePicture}
+                        src={"/images/stockphoto.png"}
                     />
                 </div>
                 <div>
                     <Image
                         className="cursor-pointer"
                         alt="logo"
-                        width="150"
-                        height="150"
-                        src={fiveRandomEmployees[3].profilePicture}
+                        width="200"
+                        height="200"
+                        src={"/images/group_photo_old.jpg"}
                     />
                 </div>
             </div>
