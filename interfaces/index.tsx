@@ -6,25 +6,38 @@ export type Page = {
     description?: string
 }
 
+type SanityImage = {
+    _type: string
+    asset: any
+}
+
 export type Employee = {
     name: string
-    profilePicture: string
+    profilePicture: SanityImage
     position: string
     study: string
-    linkedIn: string
+    linkedin: string
     email: string
     isAlumni: boolean
     about: string
     company?: string
 }
 
+export type ProjectType = "it" | "strategy"
+
 export interface Project {
     _id: string
+    projectName: string
     customerName: string
-    image: string
-    isPublic: string
-    projectDescription: string
-    customerQuote: string
+    portrait: SanityImage
+    isPublic: boolean
+    isHighlighted: boolean
+    shortDescription: string
+    projectDuration: number
+    year: number
+    projectDescription: any[]
+    type: ProjectType
+    customerQuote?: string
 }
 
 interface ContactFormElements extends HTMLFormControlsCollection {
