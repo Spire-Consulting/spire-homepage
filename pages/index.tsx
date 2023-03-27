@@ -6,6 +6,7 @@ import { ChevronDownIcon } from "@heroicons/react/24/solid"
 import WhatWeDo from "../sections/WhatWeDo"
 import WhoWeAre from "../sections/WhoWeAre"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function Home() {
     const router = useRouter()
@@ -35,7 +36,15 @@ export default function Home() {
                     <p className="text-lg text-center">Se mer</p>
                     <ChevronDownIcon className="w-8 h-8 text-white" />
                 </Link>
+                <Image
+                    className="absolute scale-50 -right-20 top-64 md:scale-75 md:-right-9 md:top-52 lg:scale-90 lg:-right-2 lg:top-48 -rotate-90"
+                    alt="logoWall"
+                    width="390"
+                    height="390"
+                    src="/images/logo_pattern_lightblue.svg"
+                />
             </div>
+
             <div className="space-y-16 page-padding">
                 <WhoWeAre />
                 <WhatWeDo />
