@@ -3,37 +3,53 @@ import { ParsedUrlQuery } from "querystring"
 import { fetchProject, getAllProjectIds } from "../../utils/api/projectsApi"
 import { Project } from "../../interfaces"
 import Image from "next/image"
+import { PortableText } from "@portabletext/react"
+import { useNextSanityImage } from "next-sanity-image"
+import sanityClient from "../../utils/sanity/sanity"
+import { portableTextSerializers } from "../../utils/sanity/portableTextSerializer"
+import { fetchById, projectIdsQuery } from "../../utils/sanity/queries"
+import Layout from "../../components/Layout"
 
 type ProjectProps = {
-    reference: Project
+    project: Project
 }
 
-const Reference = (props: ProjectProps) => {
-    const { reference } = props
-
-    if (!reference) return <p>project not found</p>
-
+const Project = ({ project }: ProjectProps) => {
+    const imageProps = useNextSanityImage(sanityClient, project.portrait)
+    console.log(project)
+    if (!project) return <p>project not found</p>
+    console.log
     return (
-        <div>
+        <Layout tabTitle={project.projectName}>
             <div>
-                <Image
-                    src={reference.image}
-                    alt={`${reference.customerName}`}
-                    layout="fill" // required
-                    objectFit={"contain"} // change to suit your needs
-                />
+                <div>
+                    <Image
+                        width={600}
+                        height={300}
+                        src={imageProps.src}
+                        sizes="(max-width: 640px) 400px, 600px"
+                        alt={project.customerName}
+                        placeholder="blur"
+                        blurDataURL={project.portrait.asset.metadata.lqip}
+                    />
+                </div>
+                <div>
+                    <p>{project.customerName}</p>
+                    <PortableText
+                        value={project.projectDescription}
+                        components={portableTextSerializers}
+                    />
+                </div>
             </div>
-            <div>
-                <p>{reference.customerName}</p>
-            </div>
-        </div>
+        </Layout>
     )
 }
 
 export async function getStaticPaths() {
-    const paths = await getAllProjectIds()
+    const paths = await sanityClient.fetch(projectIdsQuery)
+    console.log(paths.map((id: IParams) => ({ params: id })))
     return {
-        paths,
+        paths: paths.map((id: IParams) => ({ params: id })),
         fallback: false
     }
 }
@@ -48,15 +64,15 @@ export const getStaticProps: GetStaticProps = async (context) => {
         if (!id) {
             return { notFound: true }
         }
-        const reference = await fetchProject(id)
-        if (!reference) {
+        const project = await sanityClient.fetch(fetchById(id))
+        if (!project) {
             return { notFound: true }
         }
-        return { props: { reference: reference } }
+        return { props: { project: project } }
     } catch (error) {
         console.log(error)
         return { notFound: true }
     }
 }
 
-export default Reference
+export default Project

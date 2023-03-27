@@ -18,4 +18,18 @@ const projectsQuery = `*[_type == "projects"] {
     }
 }`
 
-export { employeesQuery, projectsQuery }
+const projectIdsQuery = `*[_type == "projects"] {
+    "id": _id
+}`
+
+const fetchById = (id: string) => `*[_id == "${id}"][0]{
+    ...,
+    portrait {
+        asset->{
+            ...,
+            metadata
+        }
+    }
+}`
+
+export { employeesQuery, projectsQuery, projectIdsQuery, fetchById }

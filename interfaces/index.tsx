@@ -32,6 +32,7 @@ export interface Project {
     portrait: SanityImage
     isPublic: boolean
     isHighlighted: boolean
+    shortDescription: string
     projectDuration: number
     year: number
     projectDescription: any[]

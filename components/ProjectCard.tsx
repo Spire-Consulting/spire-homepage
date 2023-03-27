@@ -4,14 +4,15 @@ import Image from "next/image"
 import Button from "./buttons/Button"
 import { useNextSanityImage } from "next-sanity-image"
 import sanityClient from "../utils/sanity/sanity"
-import { PortableText } from "@portabletext/react"
-import { portableTextSerializers } from "../utils/sanity/portableTextSerializer"
+import { useRouter } from "next/router"
 
 type ProjectCardProps = {
     project: Project
     alternate?: boolean
 }
 export default function ProjectCard({ project, alternate }: ProjectCardProps) {
+    const router = useRouter()
+
     const imageProps = useNextSanityImage(sanityClient, project.portrait)
 
     return (
@@ -27,16 +28,13 @@ export default function ProjectCard({ project, alternate }: ProjectCardProps) {
                     {project.customerName}
                 </h2>
                 <div className="mb-8">
-                    <PortableText
-                        value={project.projectDescription}
-                        components={portableTextSerializers}
-                    />
+                    <p>{project.shortDescription}</p>
                 </div>
                 <Button
                     buttonStyle="border-2 border-lightBlue"
                     text="Les mer"
                     textStyle="text-lightBlue"
-                    onClick={() => null}
+                    onClick={() => router.push(`/dette-har-vi-gjort/${project._id}`)}
                 />
             </div>
             <div className="relative">
