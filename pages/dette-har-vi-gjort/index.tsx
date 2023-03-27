@@ -15,7 +15,7 @@ type ProjectsProps = {
 const Projects = ({ projects }: ProjectsProps) => {
     const [activeFilter, setActiveFilter] = useState<ProjectType | "ALL">("ALL")
     const isHighlighted = (project: Project) => project.isHighlighted
-    console.log("test")
+
     return (
         <Layout tabTitle="Dette har vi gjort">
             <div className="w-screen px-18 md:px-32 lg:px-52">
