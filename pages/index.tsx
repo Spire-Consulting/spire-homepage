@@ -12,9 +12,9 @@ export default function Home() {
     const router = useRouter()
 
     return (
-        <Layout tabTitle={"Hjem"} isLandingLayout>
+        <Layout tabTitle={"Hjem"}>
             <div className="h-[calc(100vh-74px)] flex flex-col justify-between">
-                <div className="px-32 m-auto space-y-8">
+                <div className="m-auto space-y-8  md:px-32">
                     <h1 className="text-lightBlue">Trenger du hjelp med IT eller strategi?</h1>
                     <h3>Vi er et studentdrevet konsulentselskap som jobber med strategi og IT</h3>
                     <div className="flex space-x-4">
@@ -37,7 +37,7 @@ export default function Home() {
                     <ChevronDownIcon className="w-8 h-8 text-white" />
                 </Link>
             </div>
-            <div className="space-y-16 page-padding">
+            <div className="space-y-16">
                 <WhoWeAre />
                 <WhatWeDo />
                 <Employees />

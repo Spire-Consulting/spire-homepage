@@ -1,17 +1,13 @@
-import { HomeIcon, PhoneIcon } from "@heroicons/react/24/solid"
 import Link from "next/link"
 import React from "react"
-import { pages } from "../assets/pages"
-import Mail from "../components/buttons/Mail"
-import { Page } from "../interfaces"
-import ContactInfo from "./ContactInfo"
+import FooterColumn from "./FooterColumn"
 import Image from "next/image"
 
 export default function Footer() {
     return (
-        <footer className="w-full text-white sm:flex-row bg-zinc-900 px-12 md:px-16 lg:px-32 py-8">
-            <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
-                <ContactInfo>
+        <footer className="w-full px-12 py-8 text-white sm:flex-row bg-zinc-900 md:px-16 lg:px-32">
+            <div className="flex flex-col items-center justify-between md:flex-row md:items-start">
+                <FooterColumn>
                     <>
                         <Link href="https://www.linkedin.com/company/spire-consulting-as">
                             Linkedin
@@ -21,8 +17,8 @@ export default function Footer() {
                         </Link>
                         <Link href="https://www.instagram.com/spireconsulting/">Instagram</Link>
                     </>
-                </ContactInfo>
-                <ContactInfo>
+                </FooterColumn>
+                <FooterColumn>
                     <>
                         <Link href="mailto:kontakt@spireconsulting.no">
                             kontakt@spireconsulting.no
@@ -30,10 +26,10 @@ export default function Footer() {
                         <p>+47 480 00 508</p>
                         <p>Org nr: 916 672 357</p>
                     </>
-                </ContactInfo>
-                <ContactInfo>
+                </FooterColumn>
+                <FooterColumn>
                     <>
-                        <div className=" flex md:justify-end">
+                        <div className="flex  md:justify-end">
                             <Image
                                 alt="logo"
                                 width="100"
@@ -44,7 +40,7 @@ export default function Footer() {
                         <p className="md:text-right">Nedre alle 2a</p>
                         <p className="md:text-right">7030 Trondheim</p>
                     </>
-                </ContactInfo>
+                </FooterColumn>
             </div>
         </footer>
     )

@@ -11,7 +11,7 @@ const OmOss: NextPage = () => {
     const router = useRouter()
 
     return (
-        <Layout tabTitle="Om oss" isLandingLayout>
+        <Layout tabTitle="Om oss">
             <div className="h-[calc(100vh-74px)] flex flex-col justify-between">
                 <div className="px-32 m-auto space-y-8">
                     <h1>Trenger du hjelp med IT eller strategi?</h1>
@@ -32,7 +32,7 @@ const OmOss: NextPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="space-y-24 page-padding">
+            <div className="space-y-24">
                 <WhoWeAre />
                 <div className="relative h-64 -mr-24">
                     <div className="absolute right-0 w-[40em] h-64">

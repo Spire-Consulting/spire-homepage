@@ -7,8 +7,8 @@ import HeaderWithTriangle from "../components/HeaderWithTriangle"
 
 export default function kontakt() {
     return (
-        <Layout tabTitle="Kontakt" isLandingLayout>
-            <div className="grid grid-cols-1 gap-8 mt-16 md:gap-16 lg:gap-24 max-w-7xl md:grid-cols-2 page-padding">
+        <Layout tabTitle="Kontakt">
+            <div className="grid grid-cols-1 gap-8 md:gap-16 lg:gap-24 md:grid-cols-2">
                 <div className="relative">
                     <Image
                         src="/images/mountains.png"

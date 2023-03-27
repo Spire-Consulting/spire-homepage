@@ -1,38 +1,45 @@
 import { GetStaticProps } from "next"
 import { ParsedUrlQuery } from "querystring"
 import { Project } from "../../interfaces"
-import Image from "next/image"
 import { PortableText } from "@portabletext/react"
-import { useNextSanityImage } from "next-sanity-image"
 import sanityClient from "../../utils/sanity/sanity"
 import { portableTextSerializers } from "../../utils/sanity/portableTextSerializer"
 import { fetchById, projectIdsQuery } from "../../utils/sanity/queries"
 import Layout from "../../components/Layout"
+import CarouselItem from "../../components/CarouselItem"
+import Quote from "../../components/Quote"
+import HeaderWithTriangle from "../../components/HeaderWithTriangle"
 
 type ProjectProps = {
     project: Project
 }
 
 const ProjectPage = ({ project }: ProjectProps) => {
-    const imageProps = useNextSanityImage(sanityClient, project.portrait)
     if (!project) return <p>Project not found</p>
 
     return (
         <Layout tabTitle={project.projectName}>
-            <div>
-                <div>
-                    <Image
-                        width={600}
-                        height={300}
-                        src={imageProps.src}
-                        sizes="(max-width: 640px) 400px, 600px"
-                        alt={project.customerName}
-                        placeholder="blur"
-                        blurDataURL={project.portrait.asset.metadata.lqip}
-                    />
+            <div className="relative w-full h-[300px]">
+                <CarouselItem project={project} />
+            </div>
+            <div className="px-12 py-8 space-y-8 lg:space-y-12 lg:px-16">
+                <div className="flex flex-row space-x-16">
+                    <div>
+                        <p className="text-lg font-extrabold ">Type prosjekt</p>
+                        <p className="text-gray-300">{project.type.toUpperCase()}</p>
+                    </div>
+                    <div>
+                        <p className="text-lg font-extrabold ">År</p>
+                        <p className="text-gray-300">{project.year}</p>
+                    </div>
+                    <div>
+                        <p className="text-lg font-extrabold">Varighet</p>
+                        <p className="text-gray-300">{project.projectDuration}</p>
+                    </div>
                 </div>
-                <div>
-                    <p>{project.customerName}</p>
+                {project.customerQuote && <Quote quote={project.customerQuote} />}
+                <div className="space-y-4">
+                    <HeaderWithTriangle title="Om prosjektet" color="lightBlue" />
                     <PortableText
                         value={project.projectDescription}
                         components={portableTextSerializers}

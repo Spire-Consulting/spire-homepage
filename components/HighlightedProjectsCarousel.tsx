@@ -29,7 +29,7 @@ export default function HighlightedProjectsCarousel({ highlightedProjects }: Pro
                 className="w-12 h-12 text-white cursor-pointer"
             />
             <div className="relative flex-1 m-auto h-80">
-                <CarouselItem project={highlightedProjects[activeIndex]} />
+                <CarouselItem project={highlightedProjects[activeIndex]} showButton />
             </div>
             <ChevronRightIcon
                 onClick={handleRightClick}
