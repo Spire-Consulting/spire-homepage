@@ -12,7 +12,7 @@ type SanityImage = {
 }
 
 export type Employee = {
-    name: string
+    fullName: string
     profilePicture: SanityImage
     position: string
     study: string

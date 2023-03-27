@@ -16,7 +16,7 @@ export default function EmployeeCard({ employee }: EmployeeProps) {
             <div className="relative pb-[85%]">
                 <Image
                     src={imageProps.src}
-                    alt={employee.name}
+                    alt={employee.fullName}
                     fill
                     sizes="(max-width: 640px) 200px, 300px"
                     className="object-cover"
@@ -25,12 +25,12 @@ export default function EmployeeCard({ employee }: EmployeeProps) {
                 />
             </div>
             <div className="py-4 space-y-2">
-                <p className="text-xl font-bold">{employee.name}</p>
+                <p className="text-xl font-bold">{employee.fullName}</p>
                 <p className="text-base text-lime">{employee.position}</p>
+                <p>{employee.email}</p>
                 <div>
                     <LinkedIn url={employee.linkedin} />
                 </div>
-                <p>{employee.email}</p>
             </div>
         </li>
     )

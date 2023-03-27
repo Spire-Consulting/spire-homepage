@@ -1,23 +1,22 @@
 import { GetStaticProps } from "next"
 import { ParsedUrlQuery } from "querystring"
-import { fetchProject, getAllProjectIds } from "../../utils/api/projectsApi"
 import { Project } from "../../interfaces"
 import Image from "next/image"
 import { PortableText } from "@portabletext/react"
 import { useNextSanityImage } from "next-sanity-image"
 import sanityClient from "../../utils/sanity/sanity"
 import { portableTextSerializers } from "../../utils/sanity/portableTextSerializer"
-import { fetchById, projectIdsQuery } from "../../utils/sanity/queries"
+import { fetchById, projectIdsQuery, employeesQuery } from "../../utils/sanity/queries"
 import Layout from "../../components/Layout"
 
 type ProjectProps = {
     project: Project
 }
 
-const Project = ({ project }: ProjectProps) => {
+const ProjectPage = ({ project }: ProjectProps) => {
     const imageProps = useNextSanityImage(sanityClient, project.portrait)
     console.log(project)
-    if (!project) return <p>project not found</p>
+    if (!project) return <p>Project not found</p>
     console.log
     return (
         <Layout tabTitle={project.projectName}>
@@ -75,4 +74,4 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }
 }
 
-export default Project
+export default ProjectPage

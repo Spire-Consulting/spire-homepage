@@ -1,5 +1,4 @@
 import { Project, ProjectType } from "../../interfaces"
-import { fetchProjects } from "../../utils/api/projectsApi"
 import { GetStaticProps } from "next"
 import Layout from "../../components/Layout"
 import ProjectCard from "../../components/ProjectCard"
@@ -15,7 +14,6 @@ type ProjectsProps = {
 
 const Projects = ({ projects }: ProjectsProps) => {
     const [activeFilter, setActiveFilter] = useState<ProjectType | "ALL">("ALL")
-
     const isHighlighted = (project: Project) => project.isHighlighted
 
     return (
