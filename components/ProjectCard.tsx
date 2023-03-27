@@ -22,13 +22,10 @@ export default function ProjectCard({ project, alternate }: ProjectCardProps) {
             )}
         >
             <div className="flex flex-col justify-center w-full h-full">
-                {/* Placeholder for when filtering is implemented */}
-                {/* <p>{project.type}</p> */}
-                <p className="mb-4 text-lime">Strategi</p>
+                <p className="mb-4 text-lime">{project.type.toUpperCase()}</p>
                 <h2 className="pb-2 mb-8 border-b-2 w-fit border-b-lightBlue">
                     {project.customerName}
                 </h2>
-                {/* Remove slice when shorter description is implemented */}
                 <div className="mb-8">
                     <PortableText
                         value={project.projectDescription}

@@ -16,10 +16,12 @@ type ProjectsProps = {
 const Projects = ({ projects }: ProjectsProps) => {
     const [activeFilter, setActiveFilter] = useState<ProjectType | "ALL">("ALL")
 
+    const isHighlighted = (project: Project) => project.isHighlighted
+
     return (
         <Layout tabTitle="Dette har vi gjort">
             <div className="w-screen px-18 md:px-32 lg:px-52">
-                <HighlightedProjectsCarousel highlightedProjects={projects.slice(3)} />
+                <HighlightedProjectsCarousel highlightedProjects={projects.filter(isHighlighted)} />
                 <div className="flex justify-center w-full gap-8 mt-16">
                     <Button
                         buttonStyle={`border-2 border-lightBlue ${
